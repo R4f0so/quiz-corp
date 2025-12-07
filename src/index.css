@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    /* Corporate Green Theme */
+    --background: 150 20% 97%;
+    --foreground: 165 70% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 165 70% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 70% 11%;
+
+    --primary: 140 40% 35%;
+    --primary-foreground: 60 100% 95%;
+
+    --secondary: 165 70% 11%;
+    --secondary-foreground: 60 100% 95%;
+
+    --muted: 30 10% 60%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 28 85% 37%;
+    --accent-foreground: 60 100% 95%;
+
+    --destructive: 355 75% 58%;
+    --destructive-foreground: 60 100% 95%;
+
+    --border: 30 10% 85%;
+    --input: 30 10% 85%;
+    --ring: 140 40% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors from brand */
+    --forest: 165 70% 11%;
+    --emerald: 140 40% 35%;
+    --success: 142 60% 40%;
+    --warning: 28 85% 37%;
+    --warning-light: 32 90% 70%;
+    --cream: 60 100% 89%;
+    --stone: 30 10% 60%;
+    --charcoal: 0 0% 13%;
+    --teal: 190 45% 42%;
+    --coral: 355 75% 58%;
+    --light-green: 126 30% 65%;
+    --off-white: 0 0% 96%;
+    
+    /* Team colors */
+    --team-aline: 140 40% 35%;
+    --team-adelino: 28 85% 37%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(165 70% 11%) 0%, hsl(140 40% 25%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(142 60% 40%) 0%, hsl(140 40% 35%) 100%);
+    --gradient-warning: linear-gradient(135deg, hsl(28 85% 37%) 0%, hsl(32 90% 55%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(150 20% 97%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(165 70% 11% / 0.1);
+    --shadow-md: 0 8px 24px -8px hsl(165 70% 11% / 0.15);
+    --shadow-lg: 0 16px 48px -16px hsl(165 70% 11% / 0.2);
+    --shadow-glow: 0 0 40px hsl(140 40% 35% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 165 70% 8%;
+    --foreground: 60 100% 95%;
+
+    --card: 165 50% 12%;
+    --card-foreground: 60 100% 95%;
+
+    --popover: 165 50% 12%;
+    --popover-foreground: 60 100% 95%;
+
+    --primary: 140 45% 45%;
+    --primary-foreground: 165 70% 8%;
+
+    --secondary: 140 30% 20%;
+    --secondary-foreground: 60 100% 95%;
+
+    --muted: 165 30% 20%;
+    --muted-foreground: 30 10% 60%;
+
+    --accent: 32 90% 55%;
+    --accent-foreground: 165 70% 8%;
+
+    --destructive: 355 75% 50%;
+    --destructive-foreground: 60 100% 95%;
+
+    --border: 165 30% 20%;
+    --input: 165 30% 20%;
+    --ring: 140 45% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-lg border border-border/50 shadow-md;
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+  
+  .gradient-warning {
+    background: var(--gradient-warning);
+  }
+
+  .team-aline {
+    @apply bg-emerald text-cream;
+  }
+  
+  .team-adelino {
+    @apply bg-warning text-cream;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--background)) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
